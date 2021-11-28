@@ -24,8 +24,13 @@ const getTickets = async () => {
 };
 
 app.get("/get-tickets", async function (req, res) {
-  const tickets = await getTickets();
-  res.send(tickets);
+  try {
+    const tickets = await getTickets();
+    res.status(200).send(tickets);
+  } catch (e) {
+    console.log("Error Trace");
+    res.status(500).send(e);
+  }
 });
 
 app.listen(8080, function () {
