@@ -2,13 +2,17 @@ const express = require("express");
 const path = require("path");
 const cors = require("cors");
 const axios = require("axios");
+const dotenv = require("dotenv");
+
 const app = express();
+
+dotenv.config();
 
 app.use(cors());
 
 const auth = {
-  username: "asangwan8998@gmail.com",
-  password: "Zendesk@123",
+  username: process.env.ACCOUNT_USERNAME,
+  password: process.env.ACCOUNT_PASSWORD,
 };
 
 const getTickets = async () => {
@@ -21,7 +25,6 @@ const getTickets = async () => {
 
 app.get("/get-tickets", async function (req, res) {
   const tickets = await getTickets();
-  console.log(tickets);
   res.send(tickets);
 });
 
