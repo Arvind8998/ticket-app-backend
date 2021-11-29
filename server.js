@@ -4,6 +4,7 @@ const cors = require("cors");
 const axios = require("axios");
 const dotenv = require("dotenv");
 
+const port = process.env.port || 8080;
 const app = express();
 
 dotenv.config();
@@ -33,6 +34,6 @@ app.get("/get-tickets", async function (req, res) {
   }
 });
 
-app.listen(8080, function () {
-  console.log("app listening on port 3000!");
+app.listen(port, function () {
+  console.log("app listening on port", port);
 });
