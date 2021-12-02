@@ -34,3 +34,8 @@ To install and set up the library, run:
 ### Serving the app
 
 npm start
+
+Setting up environment variables
+Create .env file if running code in development locally, and add username password to get successful response from api.
+
+If runninng in production mode, setup environment variables ACCOUNT_USERNAME, ACCOUNT_PASSWORD
